@@ -1,3 +1,4 @@
+import sys
 import nltk
 import re
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -27,44 +28,59 @@ def get_wn_pos(tb_tag):
 
 #############################################################
 
-# Use resume number as argument to file. Then dump preprocessed words in corresponding file in 'processed_resumes' directory
-# SO: big goal is to modularize this file, so that it works for different resumes
-# string = 'resume_dataset/{arg}.txt'
-
-stop_words = set(stopwords.words('english'))
-
-with open('resume_dataset/r1.txt', 'r', encoding='utf-8') as file:
-    r1 = file.read()
-
-# Tokenize
-words = word_tokenize(r1)
-
-# Lowercase and remove stopwords/unnecessary punctuation
-words_list = [w.lower() for w in words if w.lower() not in stop_words]
-
-cleaned_tokens = []
-for w in words_list:
-   w = re.sub(r'[^\w+]', '', w)
-   if w:
-       cleaned_tokens.append(w)
-
-'''
-# Lemmatize
-lemmatizer = WordNetLemmatizer()
-
-tagged_tokens = nltk.pos_tag(cleaned_tokens)
-
-tb_tags = []
-for token, tag in tagged_tokens:
-    tb_tags.append(tag)
+def main(args):
     
-final_words = []
-
-for i in range(len(tb_tags)):
-    if get_wn_pos(tb_tags[i]):
-        final_words.append(lemmatizer.lemmatize(cleaned_tokens[i], get_wn_pos(tb_tags[i])))
+    # Read in file name from command line
+    if len(sys.argv) == 1:
+        print("Missing second argument: resume as .txt file")
+        sys.exit()
+    elif len(sys.argv) == 2:
+        filename = sys.argv[1]
     else:
-        final_words.append(cleaned_tokens[i])
-'''
+        print("Incorrect usage")
+    
 
-print(cleaned_tokens)
+    stop_words = set(stopwords.words('english'))
+    
+    with open(filename, 'r', encoding='utf-8') as file:
+        resume = file.read()
+    
+    # Tokenize
+    words = word_tokenize(resume)
+    
+    # Lowercase and remove stopwords/unnecessary punctuation
+    words_list = [w.lower() for w in words if w.lower() not in stop_words]
+    
+    cleaned_tokens = []
+    for w in words_list:
+       w = re.sub(r'[^\w+]', '', w)
+       if w:
+           cleaned_tokens.append(w)
+    
+    '''
+    # Lemmatize
+    lemmatizer = WordNetLemmatizer()
+    
+    tagged_tokens = nltk.pos_tag(cleaned_tokens)
+    
+    tb_tags = []
+    for token, tag in tagged_tokens:
+        tb_tags.append(tag)
+    
+    final_words = []
+    
+    for i in range(len(tb_tags)):
+        if get_wn_pos(tb_tags[i]):
+            final_words.append(lemmatizer.lemmatize(cleaned_tokens[i], get_wn_pos(tb_tags[i])))
+        else:
+            final_words.append(cleaned_tokens[i])
+    '''
+   
+    # Rather than printing cleaned_tokens, dump them into file in 'processed_resumes' directory
+
+    print(cleaned_tokens)
+
+
+if __name__ == "__main__":
+    main(sys.argv)
+
