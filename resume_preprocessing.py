@@ -32,12 +32,17 @@ def main(args):
     
     # Read in file name from command line
     if len(sys.argv) == 1:
-        print("Missing second argument: resume as .txt file")
+        print("Missing second and third arguments: resume as .txt file, output file (.txt) for processed resume")
         sys.exit()
     elif len(sys.argv) == 2:
+        print("Missing third argument: output file (.txt) for processed resume")
+        sys.exit()
+    elif len(sys.argv) == 3:
         filename = sys.argv[1]
+        outfile = sys.argv[2]
     else:
         print("Incorrect usage")
+        sys.exit()
     
 
     stop_words = set(stopwords.words('english'))
@@ -78,7 +83,8 @@ def main(args):
    
     # Rather than printing cleaned_tokens, dump them into file in 'processed_resumes' directory
 
-    print(cleaned_tokens)
+    with open(outfile, 'w') as file:
+        print(cleaned_tokens, file=file)
 
 
 if __name__ == "__main__":
