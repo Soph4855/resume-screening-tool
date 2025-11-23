@@ -1,5 +1,0 @@
-hard_reqs = ['C++', 'Java', 'Python']
-
-soft_reqs = ['leader', 'driven', 'creative']
-
-freq_words = ['solved', 'analyzed', 'calculated', 'predicted', 'built']

@@ -1,5 +1,0 @@
-hard_reqs = ['Interpersonal', 'HR', 'Work']
-
-soft_reqs = ['experience', 'communicate', 'business']
-
-freq_words = ['communicated', 'encouraged', 'organized', 'developed', 'directed']

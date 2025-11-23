@@ -1,0 +1,8 @@
+Immediate:
+- Modularize resume_preprocessing.py so it works on individual resumes, and the results can be dumped into 'processed_resumes' directory
+
+
+Later:
+- Allow for text input of required qualifications 
+	- One file that asks for hard_reqs, soft_reqs, and freq_words (described for user)
+- Filter based on GPA, not just words alone

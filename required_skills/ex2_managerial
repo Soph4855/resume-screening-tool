@@ -1,5 +1,0 @@
-hard_reqs = ['MS Suite', 'Management', 'Finance']
-
-soft_reqs = ['computer', 'experience', 'project']
-
-freq_words = ['managed', 'evaluated', 'assessed', 'predicted', 'cost']
