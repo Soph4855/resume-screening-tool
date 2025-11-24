@@ -107,10 +107,9 @@ def main(args):
     candidates = []
     for i in range(len(all_resumes)):
         if potential_candidate(all_resumes[i], reqs):
-            print(f"include candidate {i + 1}")
+            print(f"Candidate {i + 1} passed.")
             candidates.append(i + 1)
 
-    print(candidates)
     
 if __name__ == "__main__":
     main(sys.argv)
