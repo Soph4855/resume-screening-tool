@@ -1,0 +1,5 @@
+Future work/improvements:
+- Allow for any number of resumes in dataset
+- Allow for text input of required qualifications
+- Filter based on GPA, not just words alone
+- Deploy in web interface that requires 1) drag-and-drop folder with resumes and 2) inputted job requirements/qualifications

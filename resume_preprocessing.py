@@ -12,22 +12,6 @@ from gensim.models import Word2Vec
 # nltk.download('averaged_perceptron_tagger_eng') # for pos tagging
 # nltk.download('wordnet') # for synonym relationships
 
-######################### Functions #########################
-
-def get_wn_pos(tb_tag):
-    if tb_tag.startswith('J'):
-        return wordnet.ADJ
-    elif tb_tag.startswith('V'):
-        return wordnet.VERB
-    elif tb_tag.startswith('N'):
-        return wordnet.NOUN
-    elif tb_tag.startswith('R'):
-        return wordnet.ADV
-    else:
-        return ''
-
-#############################################################
-
 def main(args):
     
     # Read in file name from command line
@@ -61,28 +45,8 @@ def main(args):
        w = re.sub(r'[^\w+]', '', w)
        if w:
            cleaned_tokens.append(w)
-    
-    '''
-    # Lemmatize
-    lemmatizer = WordNetLemmatizer()
-    
-    tagged_tokens = nltk.pos_tag(cleaned_tokens)
-    
-    tb_tags = []
-    for token, tag in tagged_tokens:
-        tb_tags.append(tag)
-    
-    final_words = []
-    
-    for i in range(len(tb_tags)):
-        if get_wn_pos(tb_tags[i]):
-            final_words.append(lemmatizer.lemmatize(cleaned_tokens[i], get_wn_pos(tb_tags[i])))
-        else:
-            final_words.append(cleaned_tokens[i])
-    '''
-   
-    # Rather than printing cleaned_tokens, dump them into file in 'processed_resumes' directory
-
+     
+    # Dump tokens into file in 'processed_resumes' directory
     with open(outfile, 'w') as file:
         print(cleaned_tokens, file=file)
 

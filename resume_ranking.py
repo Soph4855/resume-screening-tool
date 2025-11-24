@@ -1,11 +1,3 @@
-# Rankings based on:
-    # strict inclusion of hard_reqs (resumes without them are eliminated)
-    # strict inclusion of at least one word similar to one of the soft_reqs
-
-# Will result in:
-    # Some resumes eliminated
-    # The rest ranked
-
 import sys
 import json
 import nltk
@@ -22,7 +14,7 @@ def list_synonyms(word):
     return list(synonyms)
 
 
-# Takes in (preprocessed) resume path and loads into string
+# Takes in (preprocessed) resume path and returns resume in string format
 def resume_loader(f):
     try:
         with open(f, 'r') as file:
@@ -31,11 +23,10 @@ def resume_loader(f):
         print(f"Error: The file {f} was not found")
     except Exception as e:
         print(f"Exception: {e}")
-
     return resume
 
 
-# Takes in json file with job qualifications and desired reqs list, and returns that reqs list
+# Takes in json file with job qualifications and name of desired reqs list. Returns reqs list from file
 def return_reqs_list(f, reqs):
     with open(f, 'r') as file:
         data = json.load(file)
