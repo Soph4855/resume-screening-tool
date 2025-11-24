@@ -1,0 +1,5 @@
+{
+	"hard_reqs": ["human", "resources", "business"],
+
+	"soft_reqs": ["experience", "organize", "interpersonal"]
+}

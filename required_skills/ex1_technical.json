@@ -1,0 +1,5 @@
+{
+	"hard_reqs": ["c++", "java", "sql"],
+	
+	"soft_reqs": ["solve", "analyze", "calculate"]
+}
