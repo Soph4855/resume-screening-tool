@@ -12,7 +12,7 @@ This tool is usable at the command-line interface. The main components are:
 * .json files containing job qualifications (located in `resume-screening-tool/required_skills`)
 * `resume-screening-tool/resume_ranking.py`, the script that saves and prints a list of candidates who passed the resume screening
 
-When in the directory `resume-screening-tool/` run the tool using the following command-line arguments:
+When in the directory `resume-screening-tool/`, run the tool using the following command-line arguments:
 `python resume_ranking.py <qualifications file>`
 This will output a list of candidates who passed the screening, where the "candidate" is simply the number of the resume that passed. 
 
