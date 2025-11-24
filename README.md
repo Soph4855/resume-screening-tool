@@ -13,13 +13,13 @@ This tool is usable at the command-line interface. The main components are:
 * `resume-screening-tool/resume_ranking.py`, the script that saves and prints a list of candidates who passed the resume screening
 
 When in the directory `resume-screening-tool/`, run the tool using the following command-line arguments:
-`python resume_ranking.py <qualifications file>`
+`python resume_ranking.py <qualifications file>`.
 This will output a list of candidates who passed the screening, where the "candidate" is simply the number of the resume that passed. 
 
 ### Example Usage
 `$ python resume_ranking.py required_skills/ex3_hr.json`
->> Candidate 3 passed.
->> Candidate 7 passed.
+\>> Candidate 3 passed.
+\>> Candidate 7 passed.
 
 ## Dataset
 The dataset (`resume-screening-tool/resume_dataset`) contains eight sample resume files, drawn from Bellevue University Career Services. The original link with all resumes is [here](https://msnlabs.com/img/resume-sample.pdf). (Note that only the one-page resumes were included in the `resume-screening-tool-resume_dataset` folder). The tool is not specific to these resumes--it should work with any chosen resume files. This would require:
