@@ -18,7 +18,9 @@ This will output a list of candidates who passed the screening, where the "candi
 
 ### Example Usage
 `$ python resume_ranking.py required_skills/ex3_hr.json`
+
 \>> Candidate 3 passed.
+
 \>> Candidate 7 passed.
 
 ## Dataset
